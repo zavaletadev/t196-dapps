@@ -5,10 +5,18 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/FirstFragment">
 
+    <!--
+    Los id dentro de un elemento XML en android
+    son indexables (referencias a recursos) por lo tanto
+    deben indicarse con la nomenclatura
+    @+id/_NOMBRE_ID
+    **Los ID son irrepetibles en el mismo layout
+    -->
+
     <fragment
         android:id="@+id/FirstFragment"
         android:name="mx.edu.uteq.dapps.holamundo196.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="Inicio"
         tools:layout="@layout/fragment_first" >
 
         <action
@@ -18,7 +26,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="mx.edu.uteq.dapps.holamundo196.SecondFragment"
-        android:label="@string/second_fragment_label"
+        android:label="Segunda Pantalla"
         tools:layout="@layout/fragment_second" >
 
         <action
