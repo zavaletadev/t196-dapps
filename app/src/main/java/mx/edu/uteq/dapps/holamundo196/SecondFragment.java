@@ -35,6 +35,29 @@ private FragmentSecondBinding binding;
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
+
+        /*
+        binding es una variable que permite conectar a la vista
+        con el controlador por medio de los id's de los elementos
+         */
+        binding.btnLinear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                Mandamos llamar a la accion con el id
+                @id/action_SF_to_LF para ir a esa ventana
+
+                El metodo navigate te utiliza 2 parámetros para funcionar
+                1.- Es la referencia a esta clase
+                2.- El id de la acción a donde quiero ir
+                 */
+                NavHostFragment.findNavController(
+                        SecondFragment.this
+                ).navigate(
+                        R.id.action_SF_to_LF
+                );
+            }
+        });
     }
 
 @Override

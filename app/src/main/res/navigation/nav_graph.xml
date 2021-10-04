@@ -9,7 +9,7 @@
     Los id dentro de un elemento XML en android
     son indexables (referencias a recursos) por lo tanto
     deben indicarse con la nomenclatura
-    @+id/_NOMBRE_ID
+    @+id/_NOMBRE_ID_
     **Los ID son irrepetibles en el mismo layout
     -->
 
@@ -23,6 +23,7 @@
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
         android:name="mx.edu.uteq.dapps.holamundo196.SecondFragment"
@@ -32,5 +33,33 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+
+        <!--
+        Las acciones dentro de un fragmento hacen referencia
+        al siguiente elemento donde queramos navegar
+        necesitamos 2 atributos:
+        1.- Crear un id
+        2.- indicar a donde va la acción
+        -->
+        <action
+            android:id="@+id/action_SF_to_LF"
+            app:destination="@id/LinearFragment" />
+    </fragment>
+
+    <!--
+    Los fragmentos necesitan la siguiente información para utilizarse
+    1.- El id del fragmento
+    2.- Clase asociada
+    3.- Título de la vista
+    4.- El layout con los componentes de la view
+    -->
+
+    <fragment
+        android:id="@+id/LinearFragment"
+        android:name="mx.edu.uteq.dapps.holamundo196.LinearFragment"
+        android:label="Ejemplo Linear Layout"
+        tools:layout="@layout/fragment_linear"
+        >
+
     </fragment>
 </navigation>
