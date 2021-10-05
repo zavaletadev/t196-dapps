@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LinearFragment">
+    tools:context=".LinearFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!--
+     Android permite utilizar los siguientes tamaños
+     como unidades de medida:
+
+     px ============ Pixeles (punto de luz, en función de la resolución)
+
+     dp ============ Density Points (puntos por densidad) se calculan
+                     en función de la densidad de la resolución
+
+     sp ============ Scale Points (puntos escalados) se utilizan para
+                     escalar el tamaño de fuente en función de la
+                     densidad de la resolución
+
+     match_parent == Es un tamaño dinámico en función del elemento
+                     contenedor
+
+     wrap_content == Es un tamaño dinámico en función del contenido
+                     del componente
+
+     Cuando usar
+     px ======== NUNCA (ultra necesario y tu vida dependa de ello)
+     dp ======== Para darle tamaño a los componentes
+     sp ======== Para darle tamaño a los textos
+
+     Espaciado
+     Margin ===== Es un espacio fuera del componente
+     Padding ==== Es un espacio dentro del componente
+
+     LinearLayout permite integrar 'n' cantidad de LinearLayout
+     como componente
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2007313035"
+        android:background="#5C6BC0"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textColor="#45E08F"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raúl Zavaleta Zea"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:textColor="#F7B801"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:background="#F35B04"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Hola mundo"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:paddingVertical="10dp"/>
 
-</FrameLayout>
+</LinearLayout>
