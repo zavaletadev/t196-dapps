@@ -111,7 +111,45 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="12">
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:background="#5C6BC0"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textColor="#45E08F"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:background="#5C6BC0"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textColor="#45E08F"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:textAlignment="center"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
