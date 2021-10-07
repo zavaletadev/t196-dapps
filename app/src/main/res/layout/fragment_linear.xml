@@ -38,33 +38,80 @@
      como componente
     -->
 
+    <!--
+    Diseño liquido:
+        Los elementos ajustan su tamaño al contenedor
+
+    Diseño responsivo:
+        Los elementos cambian de forma, tamaño posición
+        y presentación dependiendo del tamaño del contenedor
+
+
+    1.- Para utulizar el concepto de diseño liquido en android
+    es necesario indicar el peso total que deberán tener los hijos
+    del contenedor
+
+    1.- Cada componente hijo deberá expresar su propio peso
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="12">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="1dp"
+        android:layout_weight="12"
         android:layout_height="wrap_content"
-        android:text="2007313035"
+        android:text="12"
         android:background="#5C6BC0"
         android:padding="10dp"
         android:layout_margin="10dp"
         android:textColor="#45E08F"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        android:textAlignment="center"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Raúl Zavaleta Zea"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:textColor="#F7B801"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        android:background="#F35B04"/>
+        android:orientation="horizontal"
+        android:weightSum="12">
+        <TextView
+            android:layout_width="1dp"
+            android:layout_weight="6"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textColor="#F7B801"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:background="#F35B04"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_weight="6"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:background="#5C6BC0"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:textColor="#45E08F"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     </LinearLayout>
 
     <TextView
