@@ -45,9 +45,229 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="20dp" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Primer apellido"
+            android:inputType="textPersonName"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Segundo apellido"
+            android:inputType="textPersonName"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp" />
+
+        <!--
+        CheckBox permite seleccionar varios o ninguno
+        del mismo grupo
+
+        RadioButton solo permite seleccionar uno del
+        mismo grupo
+
+        Switch no envía un valor yn no pertenece a un grupo,
+        solo indica prendido o apagado
+
+        Spinner (eq. <select> html)
+        Lista desplegable de opciones
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo de nacimiento"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"/>
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="12"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp">
+
+                <RadioButton
+                    android:id="@+id/radio_mujer"
+                    android:layout_width="1dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_woman"
+                    android:text="Mujer"
+                    android:textSize="14sp"/>
+
+                <RadioButton
+                    android:id="@+id/radio_hombre"
+                    android:layout_width="1dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_man"
+                    android:text="Hombre"
+                    android:textSize="14sp"/>
+
+            </RadioGroup>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Año de nacimiento"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:weightSum="12"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:text="Día" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:text="Mes" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:text="Año" />
+
+        </LinearLayout>
+
+        <!--
+        Los spinners pueden completarde de dos maneras diferentes
+            * Por programación (directamente en el controlador)
+                Aplica cuanod los datos son dinámicos
+            * Desde la vista
+                Aplica cuando los datos son estáticos
+                usamos el atributo entries
+
+                 ++Nota: los datos de la vista deben agregarse
+                 en el archivo llamado strings.xml
+                 (res>values>strings.xml)
+        -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:weightSum="12"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp">
+
+        <Spinner
+            android:layout_width="1dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:entries="@array/dias_calendario"/>
+
+        <Spinner
+            android:layout_width="1dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:entries="@array/meses_calendario"/>
+
+        <EditText
+            android:layout_width="1dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:hint="4 dígitos"
+            android:inputType="number"
+             />
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dirección"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:layout_margin="5dp"/>
+        <!-- Agregar campos de dirección -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contacto"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:layout_margin="5dp"/>
+        <!-- Agregar campos de contacto -->
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Deseo recibir ofertas" />
+
+
+
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Acepto los términos y condiciones" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp">
+
+            <Button
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:layout_marginRight="5dp"
+                android:text="Cancelar"
+                />
+
+            <Button
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:layout_marginLeft="5dp"
+                android:text="Continuar"
+                />
+
+        </LinearLayout>
 
 
 
     </LinearLayout>
+
 
 </androidx.core.widget.NestedScrollView>

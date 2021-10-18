@@ -2,8 +2,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="mx.edu.uteq.dapps.holamundo196.MainActivity" >
+
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_ejemplo1"
+        android:title="Menu ejem 1"
+        android:orderInCategory="110"/>
+
+
+    <!--
+    Los menús de navegación en Android
+    son elemento que permiten la anidación
+    de componentes siempre y cuando se respete
+    la siguiente jerarquía:
+    menu>item>menu>item
+    -->
+
+
+    <item
+        android:id="@+id/menu_ejemplo2"
+        android:title="Menu ejem 2"
+        android:orderInCategory="120" />
+
+
+    <item
+        android:id="@+id/menu_ejemplo3"
+        android:title="Menú con submenús"
+        android:orderInCategory="130">
+
+        <menu>
+            <item
+                android:id="@+id/sm_e1"
+                android:title="Submenu 1"
+                android:orderInCategory="100" />
+
+            <item
+                android:id="@+id/sm_e2"
+                android:title="Submenu 2"
+                android:orderInCategory="110" />
+
+            <item
+                android:id="@+id/sm_e3"
+                android:title="Submenu 3"
+                android:orderInCategory="120" />
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/menu_curp"
+        android:title="CURP"
+        android:orderInCategory="150"
+        android:icon="@drawable/ic_person_search"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_salir"
+        android:title="salir"
+        android:orderInCategory="160"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_power_settings" />
+
 </menu>
