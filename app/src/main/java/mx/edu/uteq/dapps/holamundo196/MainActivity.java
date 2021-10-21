@@ -1,8 +1,11 @@
 package mx.edu.uteq.dapps.holamundo196;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import androidx.navigation.NavController;
@@ -110,6 +113,38 @@ private ActivityMainBinding binding;
                             CurpActivity.class
                     )
             );
+        }
+
+        /*
+        Link desde el menu a los grafmentos
+         */
+        if (id == R.id.action_f2) {
+            AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+            alerta.setTitle("¿Al fragmento?");
+            alerta.setMessage("¡Amonoooos!");
+            alerta.setIcon(R.drawable.alerta);
+            alerta.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    /*
+                    Para navegar un elemento fuera del gragmento necesitamos:
+                    1.- Indicar el componente de navegación
+                            **Contexto
+                            **Elemtno de navegación
+                    2.- Borrar la pila de elmentos navegados
+                    3.- navegar al fragmento requerido (por medio del ID)
+                     */
+                    NavController navController = Navigation.findNavController(
+                            MainActivity.this,
+                            R.id.nav_host_fragment_content_main
+                    );
+                    navController.navigateUp();
+                    navController.navigate(R.id.SecondFragment);
+                }
+            });
+            alerta.setNeutralButton("Cancelar", null);
+            alerta.setCancelable(false);
+            alerta.show();
         }
 
 

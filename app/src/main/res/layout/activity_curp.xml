@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Generación de curp"
@@ -38,6 +39,7 @@
             android:layout_margin="5dp"/>
 
         <EditText
+            android:id="@+id/et_nombres"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombres"
@@ -227,9 +229,6 @@
             android:layout_margin="5dp"
             android:text="Deseo recibir ofertas" />
 
-
-
-
         <Switch
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -246,6 +245,7 @@
             android:layout_marginVertical="10dp">
 
             <Button
+                android:id="@+id/btn_cancelar"
                 android:layout_width="1dp"
                 android:layout_weight="6"
                 android:layout_height="wrap_content"
@@ -255,6 +255,8 @@
                 />
 
             <Button
+                android:id="@+id/btn_continuar"
+                android:onClick="clickContinuar"
                 android:layout_width="1dp"
                 android:layout_weight="6"
                 android:layout_height="wrap_content"

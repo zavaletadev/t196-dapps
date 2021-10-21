@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="mx.edu.uteq.dapps.holamundo196.MainActivity" >
 
+    <item
+        android:id="@+id/action_f2"
+        android:title="Al fragmento 2"
+        android:orderInCategory="10"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_shopping_cart"/>
+
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
