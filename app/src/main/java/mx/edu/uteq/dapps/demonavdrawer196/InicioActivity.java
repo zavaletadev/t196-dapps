@@ -4,8 +4,11 @@ import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -32,18 +35,45 @@ public class InicioActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_inicio);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_inicio);
         return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+    /*
+    Invocamos al método que muestra el menu en AppBar
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //1.- layout del menu
+        //2.- instancia de menu activa
+        getMenuInflater().inflate(R.menu.pub_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /*
+    Invocamos al método que nos permite cachar ele vento click
+    de un item del menu
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        NavController navController = Navigation.findNavController(
+                //Contexto
+                InicioActivity.this,
+                //Contenedor de los fragmentos para navegar
+                R.id.nav_host_fragment_content_inicio
+        );
+
+        if (id == R.id.action_login) {
+            navController.navigateUp();
+            navController.navigate(R.id.LoginFragment);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

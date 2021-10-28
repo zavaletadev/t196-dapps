@@ -25,4 +25,11 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="mx.edu.uteq.dapps.demonavdrawer196.pub.LoginFragment"
+        android:label="Iniciar sesión"
+        tools:layout="@layout/fragment_login" />
+
 </navigation>

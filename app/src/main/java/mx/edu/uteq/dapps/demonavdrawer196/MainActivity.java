@@ -1,5 +1,7 @@
 package mx.edu.uteq.dapps.demonavdrawer196;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -82,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
             navController.navigate(R.id.nav_listadeseos);
         }
 
+        if (id == R.id.action_salir) {
+            salir();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -89,5 +96,42 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+    /*
+    Al dar click en Back preguntamos si deseamos salir
+     */
+
+    @Override
+    public void onBackPressed() {
+        salir();
+    }
+
+    /*
+    Creamos un metodo que pregunte si desemaos salir
+    y en caso positivo enviamos de vuelta al home
+     */
+    public void salir() {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+        alerta.setTitle("Cerrar sesión");
+        alerta.setMessage("¿Seguro deseas salir?");
+        alerta.setNegativeButton("No", null);
+        alerta.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Eliminar esta pantalla del stack d enavegacion
+                finish();
+
+                startActivity(
+                        new Intent(
+                                MainActivity.this,
+                                InicioActivity.class
+                        )
+                );
+            }
+        });
+        alerta.setIcon(R.drawable.alerta196);
+        alerta.setCancelable(false);
+        alerta.show();
     }
 }

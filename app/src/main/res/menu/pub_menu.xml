@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_listadeseos"
+        android:id="@+id/action_carrito"
         android:orderInCategory="100"
-        android:title="Lista de desesos"
+        android:title="Carrito"
         app:showAsAction="always"
-        android:icon="@drawable/ic_heart_broken"/>
+        android:icon="@drawable/ic_shopping_cart"/>
 
     <item
-        android:id="@+id/action_salir"
+        android:id="@+id/action_login"
         android:orderInCategory="110"
-        android:title="Salir"
         app:showAsAction="always"
-        android:icon="@drawable/ic_logout" />
-
+        android:title="Login"
+        android:icon="@drawable/ic_login" />
 </menu>

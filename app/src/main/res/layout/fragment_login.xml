@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".pub.LoginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/login_196"
+            android:scaleType="centerInside"
+            android:layout_marginVertical="20dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:hint="Campo de texto"
+            android:inputType="text"/>
+
+        <!--
+        Existen componente de entrada de datos que permiten
+        personalizar de mjor manera el comportamiento de los
+        campos de texto
+        <TextInputLayout>
+            <TextInputEditText />
+        </TextInputLayout>
+        -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Usuario / teléfono"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
+            app:startIconDrawable="@drawable/ic_account_box"
+            app:counterEnabled="true"
+            app:counterMaxLength="30">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="30"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
+            app:startIconDrawable="@drawable/ic_password"
+            app:counterEnabled="true"
+            app:counterMaxLength="12"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleDrawable="@drawable/ic_lock_open">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Usuario / teléfono"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
+            app:startIconDrawable="@drawable/ic_account_box"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="30"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
+            app:startIconDrawable="@drawable/ic_password"
+            app:counterEnabled="true"
+            app:counterMaxLength="12"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleDrawable="@drawable/ic_lock_open"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Iniciar sesión"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta?, regístrate"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button.TextButton"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button.UnelevatedButton"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ExtendedFloatingActionButton.Icon"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="#000"
+            android:textColor="#fff"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"/>
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>
