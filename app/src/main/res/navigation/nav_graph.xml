@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+
+        <action
+            android:id="@+id/action_FF_to_WSF"
+            app:destination="@id/EjemploWebService" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -31,5 +35,10 @@
         android:name="mx.edu.uteq.dapps.demonavdrawer196.pub.LoginFragment"
         android:label="Iniciar sesión"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/EjemploWebService"
+        android:name="mx.edu.uteq.dapps.demonavdrawer196.ui.EjemplowebserviceFragment"
+        android:label="Ejemplo Web service"
+        tools:layout="@layout/fragment_ejemplowebservice" />
 
 </navigation>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavHostController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import mx.edu.uteq.dapps.demonavdrawer196.databinding.FragmentFirstBinding;
@@ -44,6 +45,14 @@ public class FirstFragment extends Fragment {
                         getActivity(),
                         MainActivity.class
                 ));
+            }
+        });
+
+        binding.btnWs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FF_to_WSF);
             }
         });
     }
