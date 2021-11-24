@@ -1,7 +1,6 @@
 package mx.edu.uteq.dapps.demonavdrawer196.pub;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
@@ -135,21 +135,14 @@ public class LoginFragment extends Fragment {
     }
 
     public String md5(String texto) {
-        //Varuable para generar un hash de md5
-        MessageDigest m = null;
         try {
-            //Invocamos a md5
-            m = MessageDigest.getInstance("MD5");
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(StandardCharsets.UTF_8.encode(texto));
+            return String.format("%032x", new BigInteger(1, md5.digest()));
+        } catch (java.security.NoSuchAlgorithmException e) {
+            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-
-        //creamos una semilla random de md5
-        m.update(texto.getBytes(), 0, texto.length());
-        String textoEncriptrado = new BigInteger(1, m.digest()).toString();
-
-        return textoEncriptrado;
+        return null;
     }
 
 }
