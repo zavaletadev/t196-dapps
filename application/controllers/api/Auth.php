@@ -74,7 +74,7 @@ class Auth extends CI_Controller {
 
                     // si el usuario tiene estatus 2
                     // Cuenta deshabilitada
-                    else if ($datos_usuario->estatus === 2) {
+                    else if ($datos_usuario->estatus == 2) {
                         echo json_encode(
                             array(
                                 'code' => 403
