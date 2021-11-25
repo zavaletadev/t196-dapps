@@ -18,6 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -119,6 +122,54 @@ public class LoginFragment extends Fragment {
                 };
                 //Agregamos la petición al servidor
                 conexionServ.add(peticionServ);
+            }
+        });
+
+        /*
+        Click al btn_ejemplo_productos
+         */
+        binding.btnEjemploProductos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                peticionServ = new StringRequest(
+                        //1 Tipo
+                        Request.Method.GET,
+                        //2 url
+                        "https://zavaletazea.dev/labs/awos-dapps196/api/productos_morales/get_productos",
+                        //3 Si salio bien
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(getActivity(), response,
+                                        Toast.LENGTH_SHORT).show();
+
+                                try {
+                                    JSONObject objRespuesta = new JSONObject(response);
+
+                                    JSONArray productos = objRespuesta.getJSONArray("data");
+
+                                    for (int i = 0; i < productos.length(); i++) {
+                                        JSONObject prod = productos.getJSONObject(i);
+                                    }
+
+
+
+                                }
+                                catch (Exception e) {
+
+                                }
+                            }
+                        },
+
+                        // 4 Cuando error
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }
+                );
             }
         });
 

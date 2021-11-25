@@ -83,6 +83,15 @@
             android:layout_marginVertical="10dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
+        <Button
+            android:id="@+id/btn_ejemplo_productos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ejemplo productos"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
