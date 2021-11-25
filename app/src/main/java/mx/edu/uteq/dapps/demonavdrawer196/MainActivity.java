@@ -2,6 +2,7 @@ package mx.edu.uteq.dapps.demonavdrawer196;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editorSp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences("t196", MODE_PRIVATE);
+        editorSp = sharedPreferences.edit();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -119,7 +125,13 @@ public class MainActivity extends AppCompatActivity {
         alerta.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //Eliminar esta pantalla del stack d enavegacion
+                //Borramos los valores almacenados en nuestro espacio
+                //t196 de SharedPreferences
+                editorSp.remove("id");
+                editorSp.remove("user_key");
+                editorSp.commit();
+
+                //Eliminar esta pantalla del stack de navegacion
                 finish();
 
                 startActivity(

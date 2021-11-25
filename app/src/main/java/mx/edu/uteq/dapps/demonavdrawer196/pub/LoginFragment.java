@@ -1,6 +1,10 @@
 package mx.edu.uteq.dapps.demonavdrawer196.pub;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -47,9 +51,44 @@ public class LoginFragment extends Fragment {
     private RequestQueue conexionServ;
     private StringRequest peticionServ;
     private ProgressDialog progress;
+    private AlertDialog.Builder alerta;
+
+    /*
+    Invocamos al espacio de SharedPreferences
+     */
+    private SharedPreferences sharedPreferences;
+    /*
+    Editor para mi espacio de trabajo
+     */
+    SharedPreferences.Editor spEditor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        /*
+        Indicamos nuestro espacio de trabajo dentro de
+        SharedPreferences
+
+        Diversos modos de uso del espacio
+        MODE_PRIVATE ---------> solo mi app lo usa
+        MODE_WORLD_READABLE --> solo mi app escribe, cualquier app lee
+        MODE_WORLD_WRITABLE --> todos leen y escriben
+
+        NEcesitamos 2 parámetros:
+        1.- nombre del espacio
+            t196
+        2.- Tipo de apertura
+         */
+        sharedPreferences = getActivity().getSharedPreferences(
+                "t196",
+                Context.MODE_PRIVATE
+        );
+
+        /*
+        Agregmos un edito a nuestro espacio de trabajo
+         */
+        spEditor = sharedPreferences.edit();
+
 
         /*
         Anclamos la vista al controlador
@@ -91,8 +130,75 @@ public class LoginFragment extends Fragment {
                             @Override
                             public void onResponse(String response) {
                                 progress.hide();
-                                Toast.makeText(getActivity(), response,
-                                        Toast.LENGTH_LONG).show();
+                                /*Toast.makeText(getActivity(), response,
+                                        Toast.LENGTH_LONG).show();*/
+
+                                //Convertimos la respuesta un objeto JSON
+                                try {
+                                    JSONObject objRespuesta = new JSONObject(response);
+
+                                    int codigo = objRespuesta.getInt("code");
+
+                                    //Verificamos el estatus del usuario
+                                    //Si el usuario existe y su contraseña coincide
+                                    if (codigo == 200) {
+
+                                        //Tomamos el objeto con los datos del usuario
+                                        JSONObject datosUsuario = objRespuesta.getJSONObject("datos_usuario");
+                                        int usuarioId = datosUsuario.getInt("usuario_id");
+                                        /*
+                                        Agregamos a SharedPReferences en nuestro espacio
+                                        t196 el id y la contraseña encriptada del usuario
+                                        El método put me permite agregar valores
+                                         */
+                                        //Agregar e id del usuario
+                                        //encriptado
+                                        spEditor.putString("id", md5(String.valueOf(usuarioId)));
+
+                                        //guardamos la contraseña encriptada
+                                        spEditor.putString("user_key", md5(password));
+                                        
+                                        //Guardamos los cambios
+                                        spEditor.commit();
+
+                                        /*
+                                        Redireccionamos al home de la app
+                                         */
+                                        startActivity(
+                                                new Intent(
+                                                        getActivity(),
+                                                        MainActivity.class
+                                                )
+                                        );
+                                    }
+
+                                    //Si el usuario o la contraseña no coinciden
+                                    else if (codigo == 404) {
+                                        alerta = new AlertDialog.Builder(getActivity());
+                                        alerta.setTitle("¡Hey!");
+                                        alerta.setMessage("Usuario / contraseña incorrectos\nPor favor intenta de nuevo");
+                                        alerta.setIcon(R.drawable.noencontrado);
+                                        alerta.setPositiveButton("Aceptar", null);
+                                        alerta.setCancelable(false);
+                                        alerta.show();
+
+                                    }
+
+                                    else if (codigo == 403) {
+                                        alerta = new AlertDialog.Builder(getActivity());
+                                        alerta.setTitle("Cuenta deshabilitada");
+                                        alerta.setMessage("Tu cuenta se encuentra temporalmente deshabilitada.\n\nPor favor contacta con un administrador para más información");
+                                        alerta.setIcon(R.drawable.deshabilitado);
+                                        alerta.setPositiveButton("Aceptar", null);
+                                        alerta.setCancelable(false);
+                                        alerta.show();
+                                    }
+                                }
+
+                                catch(Exception e) {
+                                    Toast.makeText(getActivity(), e.getMessage(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
                             }
                         },
                         //4 Codigo cuando existen errores
@@ -115,6 +221,8 @@ public class LoginFragment extends Fragment {
                         //Agregamos cada nombre de variable y su valor
                         parametros.put("usuario", usuario);
                         parametros.put("password", md5(password));
+
+
 
                         //Retornamos los parámetros del servicio
                         return parametros;
